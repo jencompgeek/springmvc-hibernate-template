@@ -146,6 +146,21 @@
     <build>
 
         <plugins>
+			 <plugin>
+	                <artifactId>maven-eclipse-plugin</artifactId>
+	                <version>2.9</version>
+	                <configuration>
+	                    <additionalProjectnatures>
+	                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+	                    </additionalProjectnatures>
+	                    <additionalBuildcommands>
+	                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+	                    </additionalBuildcommands>
+	                    <downloadSources>true</downloadSources>
+	                    <downloadJavadocs>true</downloadJavadocs>
+	                   <wtpversion>2.0</wtpversion>
+	                </configuration>
+	            </plugin>
             <plugin>
                 <groupId>org.cloudfoundry</groupId>
                 <artifactId>cf-maven-plugin</artifactId>
@@ -165,15 +180,6 @@
                 <configuration>
                     <source>${java-version}</source>
                     <target>${java-version}</target>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>

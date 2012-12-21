@@ -1,17 +1,16 @@
 package org.springsource.examples.spring31.services;
 
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springsource.examples.spring31.services.config.ServicesConfiguration;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @SuppressWarnings("unchecked")
@@ -34,7 +33,7 @@ public class CustomerService {
 
     public Collection<Customer> search(String name) {
         String sqlName = ("%" + name + "%").toLowerCase();
-        String sql = "select c.* from customer c where (LOWER( c.firstName ) LIKE :fn OR LOWER( c.lastName ) LIKE :ln)";
+        String sql = "select c.* from Customer c where (LOWER( c.firstName ) LIKE :fn OR LOWER( c.lastName ) LIKE :ln)";
         return em.createNativeQuery(sql, Customer.class)
                 .setParameter("fn", sqlName)
                 .setParameter("ln", sqlName)

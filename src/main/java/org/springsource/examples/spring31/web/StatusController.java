@@ -1,15 +1,14 @@
 package org.springsource.examples.spring31.web;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
 import org.cloudfoundry.runtime.env.CloudEnvironment;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
 
 /**
  * Simple example demonstrating the unique environment properties of your application
